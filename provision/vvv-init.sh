@@ -67,7 +67,7 @@ noroot wp plugin install --activate \
   https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-media-files-1.4.7.zip \
   https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-cli-1.3.4.zip
 
-wp migratedb setting update license "$MIGRATEDB_LICENSE"
+noroot wp migratedb setting update license "$MIGRATEDB_LICENSE"
 
 cp -f "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf.tmpl" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
 
