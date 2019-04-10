@@ -54,20 +54,20 @@ fi
 
 echo "Adding Development Tools"
 cd ${VVV_PATH_TO_SITE}/public_html
-noroot wp plugin install --activate \
+noroot wp plugin install \
   query-monitor \
   relative-url \
   wp-optimize \
   wp-sweep \
-  akismet \
   jetpack \
-  classic-editor \
+  classic-editor
+noroot wp plugin install \
   https://tinho.co/wp-content/uploads/2019/04/advanced-custom-fields-pro.5.7.6.zip \
   https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-1.7.2.zip \
-  https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-media-files-1.4.7.zip \
-  http://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-cli-1.3.5.zip
+  http://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-cli-1.3.5.zip \
+  https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-media-files-1.4.7.zip
 
-noroot wp migratedb setting update license "$MIGRATEDB_LICENSE"
+noroot wp theme install --activate http://tinho.co/wp-content/uploads/2019/04/understrap-master.zip
 
 cp -f "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf.tmpl" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
 
