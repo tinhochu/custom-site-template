@@ -52,6 +52,23 @@ else
   noroot wp core update --version="${WP_VERSION}"
 fi
 
+echo "Adding Development Tools"
+cd ${VVV_PATH_TO_SITE}/public_html
+noroot wp plugin install --activate \
+  query-monitor \
+  relative-url \
+  wp-optimize \
+  wp-sweep \
+  akismet \
+  jetpack \
+  classic-editor \
+  https://tinho.co/wp-content/uploads/2019/04/advanced-custom-fields-pro.5.7.6.zip \
+  https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-1.7.2.zip \
+  https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-media-files-1.4.7.zip \
+  https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-cli-1.3.4.zip
+
+wp migratedb setting update license "$MIGRATEDB_LICENSE"
+
 cp -f "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf.tmpl" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
 
 if [ -n "$(type -t is_utility_installed)" ] && [ "$(type -t is_utility_installed)" = function ] && `is_utility_installed core tls-ca`; then
