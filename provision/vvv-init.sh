@@ -65,7 +65,7 @@ noroot wp plugin install --activate \
   https://tinho.co/wp-content/uploads/2019/04/advanced-custom-fields-pro.5.7.6.zip \
   https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-1.7.2.zip \
   https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-media-files-1.4.7.zip \
-  https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-cli-1.3.4.zip
+  http://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-cli-1.3.5.zip
 
 noroot wp migratedb setting update license "$MIGRATEDB_LICENSE"
 
