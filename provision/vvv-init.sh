@@ -32,6 +32,22 @@ if [[ ! -f "${VVV_PATH_TO_SITE}/public_html/wp-config.php" ]]; then
 define( 'WP_DEBUG', true );
 define( 'SCRIPT_DEBUG', true );
 PHP
+echo "Adding Development Tools"
+cd ${VVV_PATH_TO_SITE}/public_html
+noroot wp plugin install \
+  query-monitor \
+  relative-url \
+  wp-optimize \
+  wp-sweep \
+  jetpack \
+  classic-editor
+noroot wp plugin install \
+  https://tinho.co/wp-content/uploads/2019/04/advanced-custom-fields-pro.5.7.6.zip \
+  https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-1.7.2.zip \
+  http://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-cli-1.3.5.zip \
+  https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-media-files-1.4.7.zip
+
+noroot wp theme install --activate http://tinho.co/wp-content/uploads/2019/04/understrap-master.zip
 fi
 
 if ! $(noroot wp core is-installed); then
@@ -51,23 +67,6 @@ else
   cd ${VVV_PATH_TO_SITE}/public_html
   noroot wp core update --version="${WP_VERSION}"
 fi
-
-echo "Adding Development Tools"
-cd ${VVV_PATH_TO_SITE}/public_html
-noroot wp plugin install \
-  query-monitor \
-  relative-url \
-  wp-optimize \
-  wp-sweep \
-  jetpack \
-  classic-editor
-noroot wp plugin install \
-  https://tinho.co/wp-content/uploads/2019/04/advanced-custom-fields-pro.5.7.6.zip \
-  https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-1.7.2.zip \
-  http://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-cli-1.3.5.zip \
-  https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-media-files-1.4.7.zip
-
-noroot wp theme install --activate http://tinho.co/wp-content/uploads/2019/04/understrap-master.zip
 
 cp -f "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf.tmpl" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
 
