@@ -40,14 +40,13 @@ noroot wp plugin install \
   wp-optimize \
   wp-sweep \
   jetpack \
-  classic-editor
-noroot wp plugin install \
+  classic-editor \
   https://tinho.co/wp-content/uploads/2019/04/advanced-custom-fields-pro.5.7.6.zip \
   https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-1.7.2.zip \
   http://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-cli-1.3.5.zip \
   https://tinho.co/wp-content/uploads/2019/04/wp-migrate-db-pro-media-files-1.4.7.zip
 
-noroot wp theme install --activate http://tinho.co/wp-content/uploads/2019/04/understrap-master.zip
+noroot wp theme install http://tinho.co/wp-content/uploads/2019/04/understrap-master.zip
 fi
 
 if ! $(noroot wp core is-installed); then
